@@ -1,0 +1,21 @@
+{
+  "name": "hockeyapp-windows-msi-task",
+  "version": "1.0.0",
+  "description": "VSO Build to HockeyApp Desktop",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simpert/HockeyAppWindowsMsiTask"
+  },
+  "keywords": [
+    "vso",
+    "hockeyapp",
+    "windows",
+    "desktop",
+    "package",
+    "build",
+    "deploy"
+  ],
+  "author": "Tommy Simper",
+  "license": "MIT"
+}

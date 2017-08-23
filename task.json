@@ -1,0 +1,81 @@
+{
+    "id": "9ffb7460-6de0-454f-9ee1-f1d98422fbf8",
+    "name": "vsoHockeyAppWindowsTask",
+    "friendlyName": "VSO HockeyApp Windows Task",
+    "description": "Publish Msi Package to HockeyApp 1.0.10",
+    "author": "Tommy Simper",
+    "helpMarkDown": "Replace with markdown to show in help",
+    "category": "Deploy",
+    "visibility":
+    [
+        "Deploy",
+        "Release",
+        "Build"
+    ],
+    "version":
+    {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "demands":
+    [
+        "powershell"
+    ],
+    "minimumAgentVersion": "1.83.0",
+    "instanceNameFormat": "Deploy $(installerPath) to HockeyApp",
+    "groups":
+    [
+        {
+            "name": "hockeyAppOptions",
+            "displayName": "HockeyApp Options",
+            "isExpanded": true
+        }
+    ],
+    "inputs":
+    [
+        {
+            "name": "appID",
+            "type": "string",
+            "label": "HockeyApp App ID",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The App ID.  You can get this from HockeyApp",
+            "groupName": "hockeyAppOptions"
+        },
+        {
+            "name": "apiToken",
+            "type": "string",
+            "label": "HockeyApp API Token",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "A valid HockeyApp API token.",
+            "groupName": "hockeyAppOptions"
+        },
+        //{
+        //    "name": "packageDirectory",
+        //    "type": "filePath",
+        //    "label": "Package Parent Directory",
+        //    "defaultValue": "../b/AppxPackages/",
+        //    "required": true,
+        //    "helpMarkDown": "Relative path from repo root of the solution(s) or MSBuild project to zip and upload.  Unless you changed your package output directory, leave this alone."
+        //},
+        {
+            "name": "installerPath",
+            "type": "filePath",
+            "label": "Path to .msi file",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Relative path to msi installer file from repo root of the solution(s) or MSBuild project to zip and upload."
+        }
+    ],
+    "execution":
+    {
+        "PowerShell":
+        {
+            "target": "$(currentDirectory)\\hockeyapp.ps1",
+            "argumentFormat": "",
+            "workingDirectory": "$(currentDirectory)"
+        }
+    }
+}
